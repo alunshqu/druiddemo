@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    username: admin
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/ec_admin?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true
+    jdbcUrl: ${spring.datasource.url}
+    initial-size: 5
+    min-idle: 5
+    max-active: 20
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    validation-query: select 1 from dual
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    pool-prepared-statements: true
+    filters: stat,wall,log4j,config
+    min-evictable-idle-time-millis: 30000
+    max-pool-prepared-statement-per-connection-size: 20
+    use-global-data-source-stat: true
+    connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+server:
+  port: 9501
